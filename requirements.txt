@@ -50,7 +50,7 @@ Keras-Applications==1.0.8
 Keras-Preprocessing==1.1.2
 kiwisolver==1.2.0
 librosa==0.8.0
-libsndfile1
+libsndfile
 llvmlite==0.31.0
 Markdown==3.2.2
 MarkupSafe==1.1.1

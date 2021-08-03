@@ -3,4 +3,4 @@
 
 - COUGH SOUND DETECTION -- Maybe
 - https://github.com/whitphx/streamlit-webrtc -- IMP -- sound recording 
-- add instructions --> 0.5 meters 
+- add instructions --> 0.5 meters, start recordings + over

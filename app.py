@@ -1,6 +1,6 @@
 import streamlit as st
-from synthesizer.inference import Synthesizer
-from encoder import inference as encoder
+#from synthesizer.inference import Synthesizer
+#from encoder import inference as encoder
 #from vocoder import inference as vocoder
 from pathlib import Path
 import numpy as np
@@ -30,7 +30,7 @@ model_load_state = st.text("Loading pretrained models...")
 # )
 # vocoder.load_model(voc_model_fpath)
 
-loaded_model = pickle.load(open('model\finalized_model.sav', 'rb'))
+loaded_model = pickle.load(open(r'C:\Users\DELL\COVID_app\model\finalized_model.sav', 'rb'))
 
 model_load_state.text("Loaded pretrained models!")
 
@@ -44,7 +44,7 @@ if st.button(f"Click to Record"):
     else:
         record_state = st.text("Recording...")
         duration = 5  # seconds
-        fs = 48000
+        fs = 22050
         myrecording = record(duration, fs)
         record_state.text(f"Saving sample as {filename}.mp3")
 

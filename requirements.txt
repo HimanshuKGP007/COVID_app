@@ -97,6 +97,7 @@ scipy==1.5.2
 Send2Trash==1.5.0
 six==1.15.0
 sounddevice==0.4.1
+soundfile 
 streamlit==0.67.1
 termcolor==1.1.0
 terminado==0.9.1

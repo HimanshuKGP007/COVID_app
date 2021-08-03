@@ -12,7 +12,7 @@ features = ['chroma_stft', 'rmse', 'spectral_centroid', 'spectral_bandwidth',
        'mfcc12', 'mfcc13', 'mfcc14', 'mfcc15', 'mfcc16', 'mfcc17', 'mfcc18',
        'mfcc19', 'mfcc20']
 
-def preproces(fn_wav):
+def preprocess(fn_wav):
     y, sr = librosa.load(fn_wav, mono=True, duration=5)
     chroma_stft = librosa.feature.chroma_stft(y=y, sr=sr)
     rmse = librosa.feature.rms(y=y)
@@ -71,28 +71,28 @@ def draw_embed(embed, name, which):
     embed_ax.figure.canvas.draw()
     return fig
 
-def preprocess(fn_wav):
-    y, sr = librosa.load(fn_wav, mono=True, duration=5)
-    chroma_stft = librosa.feature.chroma_stft(y=y, sr=sr)
-    rmse = librosa.feature.rms(y=y)
-    spectral_centroid = librosa.feature.spectral_centroid(y=y, sr=sr)
-    spectral_bandwidth = librosa.feature.spectral_bandwidth(y=y, sr=sr)
-    rolloff = librosa.feature.spectral_rolloff(y=y, sr=sr)
-    zcr = librosa.feature.zero_crossing_rate(y)
-    mfcc = librosa.feature.mfcc(y=y, sr=sr)
+# def preprocess(fn_wav):
+#     y, sr = librosa.load(fn_wav, mono=True, duration=5)
+#     chroma_stft = librosa.feature.chroma_stft(y=y, sr=sr)
+#     rmse = librosa.feature.rms(y=y)
+#     spectral_centroid = librosa.feature.spectral_centroid(y=y, sr=sr)
+#     spectral_bandwidth = librosa.feature.spectral_bandwidth(y=y, sr=sr)
+#     rolloff = librosa.feature.spectral_rolloff(y=y, sr=sr)
+#     zcr = librosa.feature.zero_crossing_rate(y)
+#     mfcc = librosa.feature.mfcc(y=y, sr=sr)
     
-    feature_row = {        
-        'chroma_stft': np.mean(chroma_stft),
-        'rmse': np.mean(rmse),
-        'spectral_centroid': np.mean(spectral_centroid),
-        'spectral_bandwidth': np.mean(spectral_bandwidth),
-        'rolloff': np.mean(rolloff),
-        'zero_crossing_rate': np.mean(zcr),        
-    }
-    for i, c in enumerate(mfcc):
-        feature_row[f'mfcc{i+1}'] = np.mean(c)
+#     feature_row = {        
+#         'chroma_stft': np.mean(chroma_stft),
+#         'rmse': np.mean(rmse),
+#         'spectral_centroid': np.mean(spectral_centroid),
+#         'spectral_bandwidth': np.mean(spectral_bandwidth),
+#         'rolloff': np.mean(rolloff),
+#         'zero_crossing_rate': np.mean(zcr),        
+#     }
+#     for i, c in enumerate(mfcc):
+#         feature_row[f'mfcc{i+1}'] = np.mean(c)
 
-    return feature_row
+#     return feature_row
 
 def create_spectrogram(voice_sample):
     """

@@ -2,4 +2,5 @@
 - Add a function for extracting the scaler -- DONE
 
 - COUGH SOUND DETECTION -- Maybe
-- https://github.com/whitphx/streamlit-webrtc -- IMP -- sound recording
+- https://github.com/whitphx/streamlit-webrtc -- IMP -- sound recording 
+- add instructions --> 0.5 meters 

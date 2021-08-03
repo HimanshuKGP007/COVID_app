@@ -28,7 +28,6 @@ ffmpeg==1.4
 future==0.18.2
 gast==0.2.2
 google-pasta==0.2.0
-grpcio==1.32.0
 h5py==2.10.0
 idna==2.10
 importlib-metadata==2.0.0
@@ -98,18 +97,12 @@ Send2Trash==1.5.0
 six==1.15.0
 sounddevice==0.4.1
 streamlit==0.67.1
-tensorboard==1.15.0
-tensorflow==1.15.0
-tensorflow-estimator==1.15.1
 termcolor==1.1.0
 terminado==0.9.1
 testpath==0.4.4
 threadpoolctl==2.1.0
 toml==0.10.1
 toolz==0.11.1
-torch==1.6.0
-torchfile==0.1.0
-torchvision==0.7.0
 tornado==6.0.4
 tqdm==4.50.0
 traitlets==5.0.4

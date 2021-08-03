@@ -1,1 +1,2 @@
-- Add csv extraction function
+- Add csv extraction function -- DONE
+- Add a function for extracting the scaler

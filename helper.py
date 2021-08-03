@@ -4,6 +4,7 @@ from pathlib import Path
 from encoder.inference import plot_embedding_as_heatmap
 import sounddevice as sd
 import wavio
+import numpy as np
 
 def draw_embed(embed, name, which):
     """
@@ -27,7 +28,7 @@ def draw_embed(embed, name, which):
     embed_ax.figure.canvas.draw()
     return fig
 
-def preproces(fn_wav):
+def preprocess(fn_wav):
     y, sr = librosa.load(fn_wav, mono=True, duration=5)
     chroma_stft = librosa.feature.chroma_stft(y=y, sr=sr)
     rmse = librosa.feature.rms(y=y)

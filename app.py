@@ -10,6 +10,7 @@ import librosa
 import glob
 from helper import draw_embed, create_spectrogram, read_audio, record, save_record, preprocess, get_dataframe, scaler_transform
 import pickle
+import pandas as pd
 
 #from setup_logging import setup_logging
 # setup_logging()
@@ -30,7 +31,7 @@ model_load_state = st.text("Loading pretrained models...")
 # )
 # vocoder.load_model(voc_model_fpath)
 
-loaded_model = pickle.load(open('C:\Users\DELL\COVID_app\model\finalized_model.sav', 'rb'))
+loaded_model = pickle.load(open(r'C:\Users\DELL\COVID_app\model\finalized_model.sav', 'rb'))
 
 model_load_state.text("Loaded pretrained models!")
 
@@ -40,21 +41,37 @@ filename = st.text_input("Choose a filename: ")
 
 if st.button(f"Click to Record"):
     if filename == "":
-        st.warning("Choose a filename.")
+        st.warning("Choose a Username.")
     else:
         record_state = st.text("Recording...")
         duration = 5  # seconds
         fs = 22050
         myrecording = record(duration, fs)
-        record_state.text(f"Saving sample as {filename}.mp3")
+        record_state.text(f"Saving sample as {filename}.wav")
 
-        path_myrecording = f"./samples/{filename}.mp3"
+        path_myrecording = f"./samples/{filename}.wav"
 
         save_record(path_myrecording, myrecording, fs)
-        record_state.text(f"Done! Saved sample as {filename}.mp3")
+        record_state.text(f"Done! Saved sample as {filename}.wav")
 
         st.audio(read_audio(path_myrecording))
 
         fig = create_spectrogram(path_myrecording)
         st.pyplot(fig)
+
+if st.button(f'Classify'):
+        cnn = loaded_model
+        path_myrecording = f"./samples/{filename}.wav"
+        with st.spinner("Classifying the chord"):
+            retro = preprocess(path_myrecording)
+            retro1 = get_dataframe(retro)
+            retro2 = scaler_transform(retro1)
+
+            chord = cnn.predict(retro2)
+        st.success("Classification completed")
+        #st.header()
+        # st.write("### The recorded chord is **", chord + "**")
+        # if chord == 'N/A':
+        #     st.write("Please record sound first")
+        # st.write("\n")
 

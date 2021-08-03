@@ -6,6 +6,8 @@ import sounddevice as sd
 import wavio
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
+import pandas as pd
+
 features = ['chroma_stft', 'rmse', 'spectral_centroid', 'spectral_bandwidth',
        'rolloff', 'zero_crossing_rate', 'mfcc1', 'mfcc2', 'mfcc3', 'mfcc4',
        'mfcc5', 'mfcc6', 'mfcc7', 'mfcc8', 'mfcc9', 'mfcc10', 'mfcc11',

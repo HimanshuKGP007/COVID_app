@@ -112,18 +112,18 @@ def create_spectrogram(voice_sample):
 
     # Plot the signal read from wav file
     fig = plt.figure()
-    plt.subplot(211)
+    #plt.subplot(111)
     plt.title(f"Spectrogram of file {voice_sample}")
 
     plt.plot(original_wav)
     plt.xlabel("Sample")
     plt.ylabel("Amplitude")
 
-    plt.subplot(212)
-    plt.specgram(original_wav, Fs=sampling_rate)
-    plt.xlabel("Time")
-    plt.ylabel("Frequency")
-    # plt.savefig(voice_sample.split(".")[0] + "_spectogram.png")
+    # plt.subplot(212)
+    # plt.specgram(original_wav, Fs=sampling_rate)
+    # plt.xlabel("Time")
+    # plt.ylabel("Frequency")
+    # # plt.savefig(voice_sample.split(".")[0] + "_spectogram.png")
     return fig
 
 def read_audio(file):
